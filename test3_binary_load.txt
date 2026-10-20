@@ -1,0 +1,40 @@
+
+Municipal Financial Management System
+ 1. Add employee          9. Record expense
+ 2. List employees       10. Employee report
+ 3. Search employee      11. Budget report
+ 4. Add supplier         12. Save data (text)
+ 5. List suppliers       13. Load data (text)
+ 6. Add asset            14. Save employees (binary)
+ 7. List assets          15. Load employees (binary)
+ 8. Add budget           16. Backup data
+ 0. Exit
+Choice: Employees (binary): loaded 2 record(s).
+
+Press Enter to continue...
+Municipal Financial Management System
+ 1. Add employee          9. Record expense
+ 2. List employees       10. Employee report
+ 3. Search employee      11. Budget report
+ 4. Add supplier         12. Save data (text)
+ 5. List suppliers       13. Load data (text)
+ 6. Add asset            14. Save employees (binary)
+ 7. List assets          15. Load employees (binary)
+ 8. Add budget           16. Backup data
+ 0. Exit
+Choice: ID       Name                                 Salary
+101      Maria Nangolo                      18500.50
+102      Simon Amupolo                      17200.00
+
+Press Enter to continue...
+Municipal Financial Management System
+ 1. Add employee          9. Record expense
+ 2. List employees       10. Employee report
+ 3. Search employee      11. Budget report
+ 4. Add supplier         12. Save data (text)
+ 5. List suppliers       13. Load data (text)
+ 6. Add asset            14. Save employees (binary)
+ 7. List assets          15. Load employees (binary)
+ 8. Add budget           16. Backup data
+ 0. Exit
+Choice: Goodbye.

@@ -1,0 +1,12 @@
+== employees.txt (54 bytes) ==
+101|Maria Nangolo|18500.50
+102|Simon Amupolo|17200.00
+
+== employees.dat (128 bytes) - first 64 bytes (one record = 64 bytes) ==
+0000000 65 00 00 00 4d 61 72 69 61 20 4e 61 6e 67 6f 6c  >e...Maria Nangol<
+0000016 6f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  >o...............<
+0000032 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  >................<
+0000048 00 00 00 00 00 00 00 00 00 00 00 00 20 11 d2 40  >............ ..@<
+0000064 66 00 00 00 53 69 6d 6f 6e 20 41 6d 75 70 6f 6c  >f...Simon Amupol<
+
+sizeof(Employee) on this build = 64 bytes per record (4 id + 50 name + 6 padding + 8 salary)

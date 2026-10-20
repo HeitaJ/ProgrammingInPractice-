@@ -1,35 +1,83 @@
+/* budget.c */
 #include <stdio.h>
-int main() {
-    double revenue;
-    double expenses;
-    double balance;
-    int departments;
-    double payroll;
-    double procurement;
-    double assets;
-    printf("Enter total revenue: ");
-    scanf("%lf" , &revenue);
-    printf("Enter total expenses: ");
-    scanf("%lf"  , &expenses);
-    printf("Enter number of departments: ");
-    scanf("%lf" , &departments);
-    printf("Enter total payroll amount: ");
-    scanf("%lf" , &payroll);
-    printf("Enter total procurement amount: ");
-    scanf("%lf" , &procurement);
-    printf("Enter the total value of assets: ");
-    scanf("%lf" , &assets);
+#include <string.h>
+#include "budget.h"
+#include "utilities.h"
 
-    balance = revenue - expenses;
-    printf("\nFinancial Balance: %.2f\n", balance);
-    if(revenue > expenses) {
-        printf("The budget is in a SURPLUS.\n");
+static BudgetItem budgets[MAX_BUDGETS];
+static int budgetCount = 0;
+
+void addBudget(void)
+{
+    BudgetItem *b;
+
+    if (budgetCount >= MAX_BUDGETS) {
+        printf("Budget list is full.\n");
+        return;
     }
-    else if (revenue < expenses) {
-        printf("The budget is in a DEFICIT.\n");
+    b = &budgets[budgetCount];
+    readString("Department: ", b->department, sizeof b->department);
+    b->allocated = readDouble("Allocated amount: ", 0.0);
+    b->spent = 0.0;
+    budgetCount++;
+    printf("Budget added.\n");
+}
+
+void recordExpense(void)
+{
+    int i;
+    double amount;
+
+    if (budgetCount == 0) {
+        printf("No budgets yet. Add one first.\n");
+        return;
     }
-    else {
-        printf("The budget is BALANCED.\n");
+    for (i = 0; i < budgetCount; i++) {
+        printf("%d) %s\n", i + 1, budgets[i].department);
     }
-    return 0;
+    i = readInt("Choose budget: ", 1, budgetCount) - 1;
+    amount = readDouble("Expense amount: ", 0.0);
+    budgets[i].spent += amount;
+    printf("Expense recorded.\n");
+}
+
+double calculateBudgetBalance(void)
+{
+    double balance = 0.0;
+    int i;
+
+    for (i = 0; i < budgetCount; i++) {
+        balance += budgets[i].allocated - budgets[i].spent;
+    }
+    return balance;
+}
+
+int getBudgetCount(void)
+{
+    return budgetCount;
+}
+
+const BudgetItem *getBudgetItem(int index)
+{
+    if (index < 0 || index >= budgetCount) {
+        return NULL;
+    }
+    return &budgets[index];
+}
+
+int addBudgetRecord(const char *department, double allocated, double spent)
+{
+    if (budgetCount >= MAX_BUDGETS || strlen(department) >= DEPT_LEN) {
+        return 0;
+    }
+    strcpy(budgets[budgetCount].department, department);
+    budgets[budgetCount].allocated = allocated;
+    budgets[budgetCount].spent = spent;
+    budgetCount++;
+    return 1;
+}
+
+void clearBudgets(void)
+{
+    budgetCount = 0;
 }

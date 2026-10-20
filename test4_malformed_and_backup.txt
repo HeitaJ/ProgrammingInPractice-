@@ -1,0 +1,12 @@
+ 8. Add budget           16. Backup data
+Choice: Employees: loaded 2 record(s), skipped 4 malformed/duplicate line(s).
+Suppliers: loaded 1 record(s).
+Assets: loaded 1 record(s).
+Budgets: loaded 1 record(s).
+ 8. Add budget           16. Backup data
+Choice: Backup: data/employees.txt -> data/employees.txt.bak
+Backup: data/suppliers.txt -> data/suppliers.txt.bak
+Backup: data/assets.txt -> data/assets.txt.bak
+Backup: data/budgets.txt -> data/budgets.txt.bak
+Backup: data/employees.dat -> data/employees.dat.bak
+ 8. Add budget           16. Backup data

@@ -1,0 +1,5 @@
+Choice: Employees: no saved file yet (data/employees.txt) - skipped.
+Suppliers: no saved file yet (data/suppliers.txt) - skipped.
+Assets: no saved file yet (data/assets.txt) - skipped.
+Budgets: no saved file yet (data/budgets.txt) - skipped.
+Choice: Employees (binary): no saved file yet (data/employees.dat) - skipped.
