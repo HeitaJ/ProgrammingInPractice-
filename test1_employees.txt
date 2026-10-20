@@ -1,0 +1,75 @@
+
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: Employee ID: Name: Monthly salary: Employee added.
+
+Press Enter to continue...
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: Employee ID: Name: Monthly salary: Employee added.
+
+Press Enter to continue...
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: ID       Name                                 Salary
+101      Anna Shikongo                      12000.00
+102      Paulus Nghipandulwa                 9500.50
+
+Press Enter to continue...
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: Employee ID to find: Found: Paulus Nghipandulwa, salary 9500.50
+
+Press Enter to continue...
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: === Employee Report ===
+Employees : 2
+Payroll   : 21500.50
+
+Press Enter to continue...
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: Goodbye.

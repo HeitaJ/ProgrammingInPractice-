@@ -1,4 +1,4 @@
 /usr/bin/ld: main.o: in function `main':
-main.c:(.text+0x14a): undefined reference to `saveAllText'
-/usr/bin/ld: main.c:(.text+0x151): undefined reference to `loadAllText'
-/usr/bin/ld: main.c:(.text+0x158): undefined reference to `saveEmployeesBinary'
+main.c:(.text+0x10d): undefined reference to `employeeReport'
+/usr/bin/ld: main.c:(.text+0x114): undefined reference to `budgetReport'
+collect2: error: ld returned 1 exit status

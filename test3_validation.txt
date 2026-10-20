@@ -1,0 +1,64 @@
+
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: Invalid input. Enter a whole number from 0 to 7.
+Choice: Invalid input. Enter a whole number from 0 to 7.
+Choice: No employees recorded.
+
+Press Enter to continue...
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: No budgets yet. Add one first.
+
+Press Enter to continue...
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: === Budget Report ===
+Total balance: 0.00
+
+Press Enter to continue...
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: === Employee Report ===
+Employees : 0
+Payroll   : 0.00
+
+Press Enter to continue...
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: Goodbye.

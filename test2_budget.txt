@@ -1,0 +1,64 @@
+
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: Department: Allocated amount: Budget added.
+
+Press Enter to continue...
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: Department: Allocated amount: Budget added.
+
+Press Enter to continue...
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: 1) Roads
+2) Water
+Choose budget: Expense amount: Expense recorded.
+
+Press Enter to continue...
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: === Budget Report ===
+Roads                allocated   50000.00  spent   12500.75  left   37499.25
+Water                allocated   30000.00  spent       0.00  left   30000.00
+Total balance: 67499.25
+
+Press Enter to continue...
+Municipal Financial Management System
+1. Add employee
+2. List employees
+3. Search employee
+4. Add budget
+5. Record expense
+6. Employee report
+7. Budget report
+0. Exit
+Choice: Goodbye.
