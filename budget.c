@@ -1,83 +1,112 @@
-/* budget.c */
 #include <stdio.h>
 #include <string.h>
-#include "budget.h"
-#include "utilities.h"
+#include "mfms.h"
 
-static BudgetItem budgets[MAX_BUDGETS];
-static int budgetCount = 0;
-
-void addBudget(void)
+/* ---------------- Budgets ---------------- */
+int addBudget(Budget list[], int count)
 {
-    BudgetItem *b;
+    Budget b;
 
-    if (budgetCount >= MAX_BUDGETS) {
-        printf("Budget list is full.\n");
-        return;
+    if (count >= MAX_RECORDS) {
+        printf("  Budget list is full (%d records).\n", MAX_RECORDS);
+        return count;
     }
-    b = &budgets[budgetCount];
-    readString("Department: ", b->department, sizeof b->department);
-    b->allocated = readDouble("Allocated amount: ", 0.0);
-    b->spent = 0.0;
-    budgetCount++;
-    printf("Budget added.\n");
+    readWord("  Department (one word): ", b.department, (int)sizeof b.department);
+    b.allocated = readDouble("  Allocated (N$): ");
+    b.spent     = readDouble("  Spent so far (N$): ");
+
+    list[count] = b;
+    printf("  Budget added.\n");
+    return count + 1;
 }
 
-void recordExpense(void)
+void displayBudgets(const Budget list[], int count)
 {
     int i;
+    double balance;
+
+    if (count == 0) {
+        printf("  No budgets stored yet.\n");
+        return;
+    }
+    printf("\n%-15s %14s %14s %14s\n", "Department", "Allocated", "Spent", "Balance");
+    for (i = 0; i < count; i++) {
+        balance = list[i].allocated - list[i].spent;
+        printf("%-15s %14.2f %14.2f %14.2f", list[i].department,
+               list[i].allocated, list[i].spent, balance);
+        if (list[i].spent > list[i].allocated) {
+            printf("  ** OVER BUDGET **");
+        }
+        printf("\n");
+    }
+}
+
+/* ---------------- Projects ---------------- */
+int addProject(Project list[], int count)
+{
+    Project p;
+
+    if (count >= MAX_RECORDS) {
+        printf("  Project list is full (%d records).\n", MAX_RECORDS);
+        return count;
+    }
+    p.id = readInt("  ID: ");
+    readWord("  Title (one word): ", p.title, (int)sizeof p.title);
+    p.budget    = readDouble("  Budget (N$): ");
+    p.startDate = readDate("  Start date:");
+    p.endDate   = readDate("  End date:");
+
+    list[count] = p;
+    printf("  Project added.\n");
+    return count + 1;
+}
+
+void displayProjects(const Project list[], int count)
+{
+    int i;
+
+    if (count == 0) {
+        printf("  No projects stored yet.\n");
+        return;
+    }
+    printf("\n%-6s %-20s %14s %-12s %-12s\n", "ID", "Title", "Budget (N$)", "Start", "End");
+    for (i = 0; i < count; i++) {
+        printf("%-6d %-20s %14.2f %02d/%02d/%-6d %02d/%02d/%-6d\n",
+               list[i].id, list[i].title, list[i].budget,
+               list[i].startDate.day, list[i].startDate.month, list[i].startDate.year,
+               list[i].endDate.day, list[i].endDate.month, list[i].endDate.year);
+    }
+}
+
+/* ---------------- Week 12: pointers and budgets ---------------- */
+void increaseBudget(Budget *b, double amount)
+{
+    b->allocated += amount;
+}
+
+void increaseBudgetMenu(Budget list[], int n)
+{
+    char dept[20];
     double amount;
-
-    if (budgetCount == 0) {
-        printf("No budgets yet. Add one first.\n");
-        return;
-    }
-    for (i = 0; i < budgetCount; i++) {
-        printf("%d) %s\n", i + 1, budgets[i].department);
-    }
-    i = readInt("Choose budget: ", 1, budgetCount) - 1;
-    amount = readDouble("Expense amount: ", 0.0);
-    budgets[i].spent += amount;
-    printf("Expense recorded.\n");
-}
-
-double calculateBudgetBalance(void)
-{
-    double balance = 0.0;
     int i;
 
-    for (i = 0; i < budgetCount; i++) {
-        balance += budgets[i].allocated - budgets[i].spent;
+    if (n == 0) {
+        printf("  No budgets stored yet.\n");
+        return;
     }
-    return balance;
-}
-
-int getBudgetCount(void)
-{
-    return budgetCount;
-}
-
-const BudgetItem *getBudgetItem(int index)
-{
-    if (index < 0 || index >= budgetCount) {
-        return NULL;
+    readWord("  Department: ", dept, (int)sizeof dept);
+    for (i = 0; i < n; i++) {
+        if (strcmp(list[i].department, dept) == 0) {
+            amount = readDouble("  Amount to add (N$): ");
+            if (amount <= 0) {
+                printf("  Amount must be positive. No change made.\n");
+                return;
+            }
+            increaseBudget(&list[i], amount);
+            printf("  %s allocated is now N$%.2f (balance N$%.2f)\n", list[i].department,
+                   list[i].allocated, list[i].allocated - list[i].spent);
+            return;
+        }
     }
-    return &budgets[index];
-}
-
-int addBudgetRecord(const char *department, double allocated, double spent)
-{
-    if (budgetCount >= MAX_BUDGETS || strlen(department) >= DEPT_LEN) {
-        return 0;
-    }
-    strcpy(budgets[budgetCount].department, department);
-    budgets[budgetCount].allocated = allocated;
-    budgets[budgetCount].spent = spent;
-    budgetCount++;
-    return 1;
-}
-
-void clearBudgets(void)
-{
-    budgetCount = 0;
+    printf("  No budget found for department '%s'.\n", dept);
 }
